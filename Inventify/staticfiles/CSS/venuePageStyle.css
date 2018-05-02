@@ -1,0 +1,203 @@
+
+
+body {
+<<<<<<< HEAD
+    background-image: url(https://i.imgur.com/XirNxJ8.png);
+=======
+    background-image: url(https://i.imgur.com/XirNxJ8.pngg);
+>>>>>>> e9cb280298d9a4db102b5343749a834b5acf7eaf
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11pt;
+        line-height: 28px;
+        color: #ffffff;
+}
+
+/* bold */
+b
+{
+    color: #79a600;
+}
+
+/*italics*/
+i
+{
+    font-style: italic;
+}
+
+/*links*/
+a
+{
+    color: #f4651a;
+}
+
+/* paragraph and link spacing */
+p, ul
+{
+    margin-bottom: 16px;
+}
+
+
+.topcontainer {
+    overflow: hidden; 
+    padding: 10px 0px;
+    margin-right: 100px;
+    margin-left: 100px;
+    border-bottom: 5px solid;
+    border-color: #fca771;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Add a black background color to the top navigation */
+.logo {
+    background-color: transparent;
+    overflow: hidden;
+    float:left;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: transparent;
+    overflow: hidden;
+    float:right;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: right;
+        color: #79a600;
+        text-align: center;
+        padding: 14px 16px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #79a600;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #f4651a;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+
+
+sidebar {
+    background-color: transparent;
+    float: left;
+    max-width: 300px;
+    margin-left: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+
+    sidebarli > a {
+        text-align: justify;
+        font-size: 20px;
+        font-weight: 100;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 0px;
+        line-height: 40px;
+        border-top: 1px solid;
+        border-color: #fca771;
+        
+    }
+        
+    sidebar a:first-child
+    {
+        padding-top: 0;
+        border-top: none;
+    }
+
+    sidebar a:hover {
+        background-color: #79a600;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-bottom: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+.container {
+    
+
+    margin-left: 400px;
+    width: 700px;
+    background-color:transparent;
+    max-height:300px;
+    margin-top: ;: 10px;
+    margin-bottom: 10px;
+}
+
+    .container border {
+        border-radius: 25px;
+        border: 2px solid #fca771;
+        padding: 20px; 
+        width: 200px;
+        height: 150px; 
+    }
+
+
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.square {
+    height: 100px;
+    width: 100px;
+    margin-top: ;: 10px;
+    margin-bottom: 10px;
+}
+
+.square img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+h1
+    {
+        letter-spacing: 0px;
+        text-transform: uppercase;
+        font-size: 40px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: lighter;
+    }
+    
+    h1 .features
+    {
+        display: block;
+        margin: 5px 0 0 0;
+        padding: 0 0 5px 0;
+        text-transform: uppercase;
+        font-size: 23px;
+    }
+    
+h2
+{
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+}

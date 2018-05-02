@@ -1,0 +1,145 @@
+body {
+    background-image: url(https://i.imgur.com/MHi47Rl.png);
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+body {
+        font-family: "Times New Roman";
+        font-size: 11pt;
+        line-height: 28px;
+        color: #ffffff;
+}
+
+
+b{
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+i{
+    font-style: italic;
+}
+
+/*links*/
+a
+{
+    color: #F2A037;
+}
+
+
+.topcontainer {
+    overflow: hidden; 
+    padding: 10px 0px;
+    margin-right: 100px;
+    margin-left: 100px;
+    border-bottom: 10px solid;
+    border-color: lightgrey;
+}
+
+/* Add a black background color to the top navigation */
+.logo {
+    background-color: transparent;
+    overflow: hidden;
+    float:left;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: transparent;
+    overflow: hidden;
+    float:right;
+}
+
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: right;
+        color: #5FB40A;
+        text-align: center;
+        padding: 14px 16px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #5FB40A;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #c97316;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+
+
+sidebar {
+    background-color: transparent;
+    float: left;
+    max-width: 300px;
+    margin-left: 100px;
+}
+
+    sidebarli > a {
+        text-align: justify;
+        font-size: 20px;
+        font-weight: 100;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 10px 0px;
+        line-height: 40px;
+        border-top: 1px solid;
+        border-color: lightgrey;
+        
+    }
+        
+    sidebar a:first-child
+    {
+        padding-top: 0;
+        border-top: none;
+    }
+
+    sidebar a:hover {
+        background-color: #5FB40A;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-bottom: none;
+        color: white;
+        border-radius: 5px;
+    }
+
+.container {
+    
+    margin-left: 400px;
+    width: 700px;
+    background-color:transparent;
+    max-height:300px;
+}
+
+h1,h2,h3,h4,h5,h6
+    {
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 40px;
+        font-weight: 300;
+    }
+    
+    h1 .features
+    {
+        display: block;
+        margin: 5px 0 0 0;
+        padding: 0 0 5px 0;
+        text-transform: uppercase;
+        font-size: 23px;
+    }

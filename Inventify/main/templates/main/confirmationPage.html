@@ -1,0 +1,9 @@
+{% extends 'main/nav_bar.html' %}
+{% load staticfiles %}
+<!Doctype html>
+{% block content %}
+
+<h2> Now added to your list! </h2>
+Go Back:
+<a href="/view_listing?listing={{listing.id}}"> {{listing.name}}</a>
+{% endblock %}

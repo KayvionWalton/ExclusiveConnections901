@@ -1,0 +1,74 @@
+{% extends 'main/nav_bar.html' %}
+{% load static %}
+<!Doctype html>
+{% block content %}
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <sidebar>
+       <h1> Filter: </h1>
+    </sidebar>
+    <div class="search">
+        <p> </p>
+   </div>
+    <div class="search">
+        <p> </p>
+   </div>
+   
+   
+    <div class="listingscontainer">
+        {% for i in listings %}
+        <div class="card">
+            <img class="card-img-top" src="{{i.picture}}" alt="Card image cap">
+            <info>
+                <name>
+                    <h1>
+                        <a href="/view_listing?listing={{i.id}}" style="text-decoration:none"> {{i.name}} </a>
+                    </h1>
+                </name>
+                    Average rating: {{i.average_rating|floatformat}}/5
+                <location>
+                    {{i.address}}
+                </location>
+                <description>
+                    <p><i>"{{i.short_description}}"</i></p>
+                </description><br><br>
+                <tags>
+                    {% for a in attributes %}
+                    {% if i.id == a.listing.id %}
+                    {% for key, value in a.TYPE_CHOICES %}
+                    {% if key == a.type %}
+                    <h4><span class="badge badge-primary">{{value}}</span></h4><br>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% endif %}
+                    {% endfor %}
+                </tags>
+
+            </info>
+        </div>
+
+        {% endfor %}
+    </div>
+    <br><br>
+<div class="pagination">
+    <span class="step-links">
+        {% if listings.has_previous %}
+            <a href="?page=1"> first </a>
+            <a href="?page={{listings.previous_page_number}}">previous</a>
+        {% endif %}
+        <span class="current">
+            page {{listings.number}} of {{listings.paginator.num_pages}}
+        </span>
+        {% if listings.has_next %}
+            <a href="?page={{ listings.next_page_number }}">next</a>
+            <a href="?page={{ listings.paginator.num_pages }}">last</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
+{% endblock %}

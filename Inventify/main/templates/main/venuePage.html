@@ -1,0 +1,178 @@
+{% extends 'main/nav_bar.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!Doctype html>
+{% block content %} 
+<body class="viewListingPage">
+<div class="homepageLayout d-flex flex-row" style="width: 84%; margin-left: 8%; margin-right:8%;">
+
+        <div class="myLists">
+            <name>
+                <h1> <font color='#f4651a'>My Lists</font></h1>
+            </name>
+            {% if user.is_authenticated %}
+                <div class="dropdown">
+                   <center> <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add to list...</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% for i in getLists %}
+                            <a class="dropdown-item" href="/confirmationPage?list_id={{i.id}}&listing={{listing.id}}">{{i.title}}</a>
+                        {% endfor %}
+                    </div></center>
+                </div>
+            {% else %}
+                <a href="/log_in">Log in </a> or <a href="/sign_up">sign up</a> to create lists.
+            {% endif %}
+        </div>
+
+	<div class="pagecontainer d-flex flex-column">
+        <div class="card text-black">
+            <div class="card-header pb-1">
+                <name style="text-align:center">
+                    <h1><font color='#f4651a'>{{listing.name}}</font></h1>
+                </name>
+
+
+                <avgrtng style="margin-left:2%">
+                    {% if listing.average_rating %}
+                    Average rating: {{listing.average_rating|floatformat}} from {{reviews.count}} reviews.
+                    {% endif%}
+                </avgrtng>
+            </div>
+            
+                <div class="card-body">
+            <center>{% if listing.picture %}
+            <img src="{{listing.picture}}" width="350" align="middle">
+                </center>
+            {% else %}
+            <img src="http://www.chriswoodsconstruction.com/wp-content/uploads/2014/08/x1-1024x609.jpg" width=500>
+            {% endif %}
+                    <br />
+            <description>
+                {{listing.description}}
+            </description>
+
+            <h1>
+                {% if listing.capacity %}
+                <span class="features"><b>Occupancy:</b> {{listing.capacity}}</span>
+                {% endif %}
+                {% if listing.phone_number %}
+                <span class="features"><b>Telephone:</b> {{phone_num}}</span>
+                {% endif %}
+                {% if listing.website %}
+                <span class="features">Website: <a href="{{listing.website}}">{{listing.website}}</a></span>
+                {% endif %}
+                {% if listing.Twitter %}
+                <span class="features"><a href="{{listing.twitter}}">Twitter</a></span>
+                {% endif %}
+                {% if listing.facebook %}
+                <span class="features"><a href="{{listing.facebook}}">Facebook</a></span>
+                {% endif %}
+                <!--<span class="features"><b>Food/bev:</b> Pull from DB</span>
+            <span class="features"><b>Indoor or outdoor:</b> Pull from DB</span>
+            <span class="features"><b>Age limit:</b> Pull from DB</span>-->
+            </h1>
+            <tags>
+
+
+                {% for i in listing_attributes %}
+                {% for key, value in i.TYPE_CHOICES %}
+                {% if key == i.type %}
+                <span class="badge badge-success">{{value}}</span>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </tags>
+        </div>
+                </div>
+           
+		<div class="reviews_container">
+            <div class="card-columns" style="column-count:1; margin-left:15%">
+        {% if reviews %}
+                
+            {% for i in reviews %}
+                <div class="card">
+                    <div class="card-body">
+
+                        <rating>
+                            <h1><font style="color: #f4651a; text-transform: uppercase">{{ i.author.username }}</font></h1>
+
+                            {% if i.rating == 1 %}
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            {%  endif %}
+                            {% if i.rating == 2 %}
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            {%  endif %}
+                            {% if i.rating == 3 %}
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            {%  endif %}
+                            {% if i.rating == 4 %}
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            {%  endif %}
+                            {% if i.rating == 5 %}
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            <img src="http://www.freepngimg.com/download/star/13-star-png-image.png" width=28>
+                            {%  endif %}
+
+                        </rating>
+
+                        <br><br>
+                        <title1><font style="color: #28a745; font-size: 25px; text-transform: uppercase">{{ i.title }}</font></title1>
+                        <br>
+                        <content><i>"{{ i.content }}"</i></content><br>
+                        {% if i.date %}
+                        <date><br><i>Written on  {{ i.date }}</i></date>
+                        {%  endif %}
+                    </div>
+                    </div>
+                    <!--User name   br      title           star rating         br          content-->
+                    {% endfor %}
+                
+                    </div>
+        
+        {% else %}
+            There are no reviews yet. Familiar with this listing? Help out by adding a review!
+        {% endif %}
+        
+        {% if user.is_authenticated %}
+            {% if user_reviewed %}
+                You have already reviewed this listing! <br>
+                <a class="btn btn-success" data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false" aria-controls="collapseReview">
+                    Edit Review
+                </a>
+                <div class="collapse" id="collapseReview">
+                    <div class="card card-body bg-dark">
+                        <a href="/delete_review?id={{curr_user_review.id}}&source={{listing.id}}"> Delete this review </a>
+                        {% crispy form %}
+                    </div>
+                </div>
+            {% else %}<br>
+                <a class="btn btn-success" data-toggle="collapse" href="#collapseReview" role="button" aria-expanded="false" aria-controls="collapseReview">
+                Leave a review!
+                </a>
+                <div class="collapse" id="collapseReview">
+                    <div class="card card-body">
+                        {% crispy form %}
+                    </div>
+                </div>
+            {% endif %}
+        {% else %}
+            You must be logged in to leave a review. <a href="/log_in">Log in </a> or <a href="/sign_up">sign up!</a>
+        {% endif %}
+        
+            </div>
+    </div>
+</div>	
+   
+    
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'main/nav_bar.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!Doctype html>
+<!--https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css-->
+{% block content %}
+<html>
+<head>
+	<title>Contact</title>
+</head>
+<body>
+    <div class="social_media">
+        <h2>Meet Kayvion, the inventor of Exclusive Connections</h2>
+        <button type="button" class="btn btn-fb"><i class="fa fa-facebook pr-1"></i> Facebook</button>
+        <button type="button" class="btn btn-ins"><i class="fa fa-instagram pr-1"></i> Instagram</button>
+        <br />
+      <!--<button type="button" class="btn btn-fb"><i class="fa fa-facebook"></i></button>
+        <button type="button" class="btn btn-ins"><i class="fa fa-instagram"></i></button> -->  
+     </div>
+    <div class="pagecontainer">
+        <br>
+        
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapsemessage" role="button" aria-expanded="false" aria-controls="collapseList">
+            Send Message
+        </a>
+        <div class="collapse" id="collapsemessage">
+            {% crispy email_form %}
+        </div>
+
+    </div>
+	</body>
+</html>
+{% endblock %}

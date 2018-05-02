@@ -1,0 +1,32 @@
+body {
+    background-color: white;
+}
+header {
+    background-color:lightgreen;   
+    width: 100%
+}
+nav {
+    background-color: lightpink;
+    float: left;
+    max-width: 300px;
+}
+.search {
+    background-color: cyan;
+    height: auto;
+    max-width:700px;
+    margin-left: 350px;
+}
+.container {
+    margin-left: 400px;
+    background-color:lightblue;
+    max-height:300px;
+}
+header {
+    color: black;
+}
+location {
+    color: black;
+}
+description {
+    
+}

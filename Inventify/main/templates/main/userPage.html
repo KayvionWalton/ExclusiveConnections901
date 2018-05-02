@@ -1,0 +1,72 @@
+{% extends 'main/nav_bar.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+<!Doctype html>
+{% block content %}
+
+<html>
+
+<body class="userPage">
+        <ttitle>  <h2> Welcome {{username}}</h2> </ttitle>
+   
+   
+    {% if username == 'admin' %}
+    <div class="text-center" max-width:100%>
+        <a class="btn btn-success" href="/admin" role="button">Admin Panel</a>
+    </div>
+    {% endif %}
+    <br /> <br />
+        <!--<div class="list_container"> -->
+
+    <div class="container"style="max-width: 84%; margin-left: 8%; margin-right:8%;" text-align:center">
+        <div class="card-columns">
+            {% for i in myLists %}
+            <div class="card text-black" style="max-width: 90%" ;>
+                <div class="card-header pb-1">
+                    <a class="btn btn-success btn-lg" data-toggle="collapse" href="#collapseList{{i.title}}" role="button" aria-expanded="false" aria-controls="collapseList{{i.title}}">
+                        {{i.title}}
+                    </a>
+                    <a href="/delete_list?user_list={{i.id}}" class="btn" style="margin-left:4%"><i class="fa fa-trash"></i></a>
+
+                </div>
+
+                <div class="card-body">
+                    <div class="collapse" id="collapseList{{i.title}}">
+                        <div class="card card-body bg-dark">
+                            {% for j in elements %}
+                            {% if i.id == j.parent_list.id %}
+
+                            {% for k in list_elements %}
+                            {% if j.listing.id == k.id %}
+                            <div class="theseLists">
+                                <h2>
+                                <a href="/delete_list_item?list_item={{j.id}}&parent={{i.id}}" class="btn"><i class="fa fa-trash"></i></a>
+                                <a href="/view_listing?listing={{k.id}}"> {{k.name}}</a> </h2>
+
+
+                            </div>
+
+                            {% endif %}
+                            {% endfor %}
+
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            {% endfor %}
+            <div class="card text-black" style="max-width: 90%" ;>
+                <div class="card-header pb-1">
+                    <h2>  {% crispy list_form %} </h2>
+
+                </div>
+            </div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}
